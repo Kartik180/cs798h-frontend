@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT Kanpur Academic Calendar 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="calendar-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container calendar-page">
+        <header>
+            <h1>IIT Kanpur Academic Calendar 2025</h1>
+            <p class="subtitle">Interactive Schedule Visualization</p>
+        </header>
+        
+        <main>
+            <div class="calendar-controls">
+                <div class="month-navigation">
+                    <button id="prevMonth" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                    <h2 id="currentMonthYear">January 2025</h2>
+                    <button id="nextMonth" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="semester-filter">
+                    <button class="semester-btn active" data-semester="all">All Events</button>
+                    <button class="semester-btn" data-semester="2024-25-II">2024-25-II</button>
+                    <button class="semester-btn" data-semester="summer">Summer 2025</button>
+                    <button class="semester-btn" data-semester="2025-26-I">2025-26-I</button>
+                </div>
+            </div>
+            
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div id="calendarDays" class="calendar-days"></div>
+            </div>
+            
+            <div class="event-details-panel">
+                <h3>Events on <span id="selectedDate">January 1, 2025</span></h3>
+                <div id="eventList" class="event-list">
+                    <p class="no-events">No events scheduled for this date.</p>
+                </div>
+            </div>
+            
+            <div class="color-legend">
+                <h3>Color Legend</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="color-box working-day"></div>
+                        <span>Working Day</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box weekend"></div>
+                        <span>Weekend</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box holiday"></div>
+                        <span>Holiday</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box exam-day"></div>
+                        <span>Examination Day</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box special-day"></div>
+                        <span>Special Academic Day</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box recess"></div>
+                        <span>Recess</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <a href="index.html" class="back-link">Back to Homepage</a>
+    </div>
+    
+    <script src="b.js"></script>
+</body>
+</html>

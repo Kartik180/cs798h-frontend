@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Schedule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Exam Schedule Lookup</h1>
+        
+        <div class="form-container">
+            <label for="rollNumber">Enter Roll Number:</label>
+            <input type="text" id="rollNumber" placeholder="Enter your roll number" required>
+            <button id="submitBtn" class="submit-btn">Submit</button>
+        </div>
+        
+        <div class="result-container">
+            <div id="loadingIndicator" class="loading-indicator hidden">Loading...</div>
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="resultContent" class="result-content"></div>
+        </div>
+        
+        <a href="index.html" class="back-link">Back to Homepage</a>
+    </div>
+    <script src="a.js"></script>
+</body>
+</html>

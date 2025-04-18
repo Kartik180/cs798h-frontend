@@ -1,0 +1,338 @@
+/* Calendar Styles */
+.calendar-page {
+    max-width: 1000px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.month-navigation {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    transform: perspective(400px) rotateY(-8deg);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    background-color: #357abf;
+    transform: perspective(400px) rotateY(0deg) translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+#currentMonthYear {
+    min-width: 180px;
+    text-align: center;
+}
+
+.semester-filter {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.semester-btn {
+    padding: 0.5rem 1rem;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    transform: perspective(500px) rotateX(3deg);
+}
+
+.semester-btn:hover {
+    background-color: #e1e1e1;
+    transform: perspective(500px) rotateX(0deg);
+}
+
+.semester-btn.active {
+    background-color: #4a90e2;
+    color: white;
+    transform: perspective(500px) rotateX(0deg);
+}
+
+.calendar-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: transform 0.3s ease;
+}
+
+.calendar-container:hover {
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.calendar-header div {
+    padding: 15px 0;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background-color: #f0f0f0;
+}
+
+.calendar-day {
+    aspect-ratio: 1/1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.calendar-day:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.calendar-day.inactive {
+    opacity: 0.4;
+}
+
+.calendar-day.selected {
+    border: 2px solid #4a90e2;
+}
+
+.day-number {
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.event-indicator {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: #4a90e2;
+    margin-top: 3px;
+}
+
+.multiple-events::after {
+    content: '+';
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+/* Day type styling */
+.weekend {
+    background-color: #f8f8f8;
+}
+
+.holiday {
+    background-color: #ffebee;
+}
+
+.weekend .day-number,
+.holiday .day-number {
+    color: #e53935;
+}
+
+.working-day {
+    background-color: #ffffff;
+}
+
+.exam-day {
+    background-color: #e8f5e9;
+}
+
+.special-day {
+    background-color: #e3f2fd;
+}
+
+.recess {
+    background-color: #fff3e0;
+}
+
+.today .day-number {
+    background-color: #4a90e2;
+    color: white;
+}
+
+/* Event details panel */
+.event-details-panel {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transform: perspective(800px) rotateY(-3deg);
+    transition: transform 0.4s ease;
+}
+
+.event-details-panel:hover {
+    transform: perspective(800px) rotateY(0deg);
+}
+
+.event-list {
+    margin-top: 1rem;
+}
+
+.event-item {
+    display: flex;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.event-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.event-time {
+    min-width: 80px;
+    font-weight: bold;
+    color: #555;
+}
+
+.event-tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.event-tag.registration {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.event-tag.classes {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.event-tag.exam {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.event-tag.deadline {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.no-events {
+    color: #888;
+    font-style: italic;
+}
+
+/* Color legend */
+.color-legend {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transform: perspective(800px) rotateX(3deg);
+    transition: transform 0.3s ease;
+}
+
+.color-legend:hover {
+    transform: perspective(800px) rotateX(0deg);
+}
+
+.legend-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .month-navigation {
+        justify-content: center;
+    }
+    
+    .semester-filter {
+        justify-content: center;
+    }
+    
+    .calendar-day {
+        padding: 5px;
+    }
+    
+    .event-item {
+        flex-direction: column;
+    }
+    
+    .event-time {
+        margin-bottom: 0.25rem;
+    }
+}

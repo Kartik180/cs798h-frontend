@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IIT Kanpur Attendance Report</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>IIT Kanpur Attendance Report</h1>
+        <p>Enter your roll number to view your attendance report</p>
+      </header>
+
+      <div class="form-container">
+        <form id="attendanceForm">
+          <div style="width: 100%; margin-bottom: 1rem">
+            <label for="rollNumber">Roll Number</label>
+            <input
+              type="text"
+              id="rollNumber"
+              placeholder="Enter your roll number"
+              required
+            />
+            <p class="error-message hidden" id="rollError">
+              Please enter a valid roll number
+            </p>
+          </div>
+
+          <div
+            style="width: 100%; display: flex; gap: 1rem; margin-bottom: 1rem"
+          >
+            <div style="flex: 1">
+              <label for="fromDate">From Date</label>
+              <input
+                type="text"
+                id="fromDate"
+                placeholder="DD-MMM-YYYY"
+                value="4-Jan-2024"
+              />
+            </div>
+
+            <div style="flex: 1">
+              <label for="toDate">To Date</label>
+              <input
+                type="text"
+                id="toDate"
+                placeholder="DD-MMM-YYYY"
+                value="18-Apr-2025"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            View Attendance Report
+          </button>
+        </form>
+      </div>
+
+      <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("attendanceForm");
+        const rollInput = document.getElementById("rollNumber");
+        const fromDateInput = document.getElementById("fromDate");
+        const toDateInput = document.getElementById("toDate");
+        const rollError = document.getElementById("rollError");
+
+        // Set today's date as the default "to" date
+        const today = new Date();
+        const months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        toDateInput.value = `${today.getDate()}-${
+          months[today.getMonth()]
+        }-${today.getFullYear()}`;
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Basic validation
+          const rollNumber = rollInput.value.trim();
+          if (!rollNumber) {
+            rollError.classList.remove("hidden");
+            return;
+          }
+
+          // Hide error message if validation passes
+          rollError.classList.add("hidden");
+
+          // Format the from and to dates
+          const fromDate = fromDateInput.value.trim();
+          const toDate = toDateInput.value.trim();
+
+          // Construct the URL with the roll number and other parameters
+          const baseUrl = "http://172.26.192.62/Smartrollcall";
+          const reportUrl =
+            "http://172.26.192.62/Smartrollcall/Reports/ReportViewer.aspx";
+
+          const params = new URLSearchParams({
+            ReportID: "11",
+            Category: "1",
+            from: fromDate,
+            to: toDate,
+            RollNumber: rollNumber,
+          });
+
+          // First open the base URL
+          const baseWindow = window.open(baseUrl, "_blank");
+
+          // Then navigate to the report page after a short delay
+          setTimeout(() => {
+            if (baseWindow) {
+              baseWindow.location.href = `${reportUrl}?${params.toString()}`;
+            }
+          }, 500); // 1 second delay
+        });
+      });
+    </script>
+  </body>
+</html>
