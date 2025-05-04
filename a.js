@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             // Create the URL with the roll number
-            const url = `https://cs798-backend.onrender.com/proxy?rollno=${encodeURIComponent(rollNo)}`;
+            const url = `http://localhost:5500/proxy?rollno=${encodeURIComponent(rollNo)}`;
             
             // Fetch data from the URL
             const response = await fetch(url);
@@ -44,9 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Get the HTML content
             const htmlContent = await response.text();
-            
+            // After getting the HTML content
+            const modifiedHtml = htmlContent.replace('</head>', 
+                '<style>body { background-color: white !important; }</style></head>');
+
+            console.log(modifiedHtml)
             // Display the content
-            resultContent.innerHTML = htmlContent;
+            resultContent.innerHTML = modifiedHtml;
             
             // Apply 3D effect to the result container
             resultContainer.style.transform = 'perspective(1500px) rotateY(0deg)';

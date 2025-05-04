@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dayHeader = document.createElement('div');
             dayHeader.classList.add('day-header');
             dayHeader.textContent = day;
-            calendarDays.appendChild(dayHeader);
+            // calendarDays.appendChild(dayHeader);
         });
         
         // Get first day of month and total days in month

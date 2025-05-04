@@ -1,29 +1,53 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Portal</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Portal</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Theme variables (light/dark) -->
+  <link rel="stylesheet" href="theme.css">
+
+  <!-- Sidebar & layout styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Academic Portal</h1>
-            <p class="subtitle">Access your academic resources and information</p>
-        </header>
-        
-        <div class="button-container">
-            <a href="a.html" class="nav-button">Exam Schedule</a>
-            <a href="b.html" class="nav-button">Academic Calendar</a>
-            <a href="c.html" class="nav-button">Attendance Report</a>
-            <a href="d.html" class="nav-button">Course Resources</a>
+  <!-- Sidebar toggle -->
+  <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Theme toggle button -->
+
+
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="logo-container">
+        <img src="./Screenshot_2025-05-03_153725-removebg-preview.png"  class="sidebar-logo">
         </div>
-        
-        <div class="message-box">
-            <p></p>
-        </div>
+      <ul class="sidebar-list">
+        <li><a href="a.html" target="content-frame">Exam Schedule</a></li>
+        <li><a href="b.html" target="content-frame">Academic Calendar</a></li>
+        <li><a href="c.html" target="content-frame">Attendance Report</a></li>
+        <li><a href="d.html" target="content-frame">Course Resources</a></li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <iframe name="content-frame" class="content-frame" src="a.html"></iframe>
     </div>
-    <script src="main.js"></script>
+    
+  </div>
+
+
+  <!-- Link-highlighting & sidebar/theme scripts -->
+  <script src="main.js"></script>
+
 </body>
 </html>

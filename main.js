@@ -27,3 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+// main.js
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.sidebar-list a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+    // Activate the first link on load
+    const homeLink = document.querySelector('.sidebar-list a[href="a.html"]');
+    if (homeLink) homeLink.classList.add('active');
+  
+    // Sidebar toggle logic
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const layoutEl      = document.querySelector('.layout');
+    sidebarToggle.addEventListener('click', () => {
+      layoutEl.classList.toggle('collapsed');
+    });
+  });
+  

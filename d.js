@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         try {
-            const response = await fetch('https://cs798-backend.onrender.com/api/courses', {
+            const response = await fetch('http://localhost:5500/api/courses', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
