@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             // Create the URL with the roll number
-            const url = `http://localhost:5500/proxy?rollno=${encodeURIComponent(rollNo)}`;
+            const url = `https://cs798-backend.onrender.com/proxy?rollno=${encodeURIComponent(rollNo)}`;
             
             // Fetch data from the URL
             const response = await fetch(url);
